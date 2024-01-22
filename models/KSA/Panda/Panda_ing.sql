@@ -1,6 +1,8 @@
 {{ config(materialized='table') }}
 
 
+
+
 select "PANDA" as RetailerName,
 CAST(REGEXP_EXTRACT(File_Name, r'\d{4}') as INT64) AS Year,
 CAST(Month as INT64) as Month,
