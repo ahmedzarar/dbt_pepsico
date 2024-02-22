@@ -1,8 +1,6 @@
 {{ config(materialized='table') }}
 
 
-
-
 select "PANDA" as RetailerName,
 CAST(REGEXP_EXTRACT(File_Name, r'\d{4}') as INT64) AS Year,
 CAST(Month as INT64) as Month,
@@ -13,7 +11,7 @@ Store_Name as srcStoreName,
 '' as srcCountry,
 City as srcCity,
 Region as srcRegion,
-Sub_Deptartment as srcCategory,
+NULL as srcCategory,
 '' as srcFlavor,
 Brandname as srcBrand,
 CAST(Sku as STRING) as srcSKU_Code,
@@ -27,9 +25,9 @@ Selling_U_M as srcUOM,
 Promo_Offer_Code as srcPromoOfferCode,
 SizeDesc as srcSizeDesc,
 CAST(BARCODE as STRING) as srcBarcode,
-'' as srcVendor,
+Vendor_Name as srcVendor,
 File_Name,
-'' as Dept_Name,
+Department_name as Dept_Name,
 '' as SupplierName,
 '' as ItemCode,
 '' as Sales_Date
